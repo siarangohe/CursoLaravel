@@ -12,7 +12,7 @@ Route::get('/prueba', function()
 
 Route::get('/test', function()
 {
-    echo "esto es una prueba";
+    return View::make('ejemplo');
 });
 
 Route::controller('personal', 'PersonalController');

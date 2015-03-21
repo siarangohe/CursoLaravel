@@ -2,8 +2,8 @@
     <head>
         <title>Bienvenido a mi pagina web</title>
         <!-- Latest compiled and minified CSS -->
-        <link rel="stylesheet" href="../../public/assets/libs/bootstrap/css/bootstrap.min.css">
-        <link rel="stylesheet" href="../../public/assets/css/style.css">
+        <link rel="stylesheet" href="../../public/libs/bootstrap/css/bootstrap.min.css">
+        <link rel="stylesheet" href="../../public/assets/css/style.css" type="text/css">
     </head>
 
     <body>
