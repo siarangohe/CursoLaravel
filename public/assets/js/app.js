@@ -49,6 +49,12 @@ managerScreen = {
                 alertify.log("Bienvenido!!!", "Success", 5000);
             }
         }, "Default Value");
+    },
+    pickerDate : function(){
+        $('.datepicker').pickadate();
+    },
+    pickerTime : function(){
+        $('.timepicker').pickatime();
     }
 }
 
