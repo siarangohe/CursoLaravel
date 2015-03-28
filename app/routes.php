@@ -10,9 +10,20 @@ Route::get('/prueba', function()
     return View::make('prueba');
 });
 
-Route::get('/test', function()
+Route::get('/test2', function()
 {
     return View::make('ejemplo');
+});
+
+Route::get('/test1', function()
+{
+    return View::make('ejemploSmarty');
+});
+
+Route::get('/siarangohe', function()
+{
+    return View::make('perfil.perfil')
+            ->with("nombre", "Simón");
 });
 
 Route::controller('personal', 'PersonalController');
