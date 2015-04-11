@@ -2,7 +2,10 @@
 
 Route::get('/', function() // estos son rutas directas
 {
-    return View::make('hello');
+    if(Auth::check()) {
+        return Redirect::to("/profile");
+    }
+    return View::make('general.login');
 });
 
 Route::get('/prueba', function()
@@ -20,10 +23,34 @@ Route::get('/test1', function()
     return View::make('ejemploSmarty');
 });
 
-Route::get('/siarangohe', function()
+Route::get('/profile', array('before'=>'auth', function() 
+//Aqui se verifica que antes de cargar el perfil este autenticado.
 {
     return View::make('perfil.perfil')
-            ->with("nombre", "Simón");
+            ->with("nombre", Auth::user()->nombre);
+}));
+
+Route::get('/login', function()
+{
+    return View::make('general.login');
+});
+
+Route::post('/loguear', function()
+{
+    $email = Input::get('email');
+    $password = Input::get('password');
+
+    if(Auth::attempt(['email'=>$email, 'password'=>$password])) {
+        return Redirect::to("/profile");
+    }else {
+        return Redirect::to("/logout");
+    }
+});
+
+Route::get('/logout', function()
+{
+    Auth::logout();
+    return Redirect::to("/login");
 });
 
 Route::controller('personal', 'PersonalController');

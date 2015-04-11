@@ -1,4 +1,4 @@
-<nav class="navbar navbar-primary">
+<nav class="navbar navbar-default">
     <div class="container-fluid">
         <!-- Brand and toggle get grouped for better mobile display -->
         <div class="navbar-header">
@@ -8,19 +8,19 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand" href="#"><img src="http://blog.adstage.io/wp-content/uploads/2014/07/facebook-logo.png" width="100" height="30"></a>
+            <a class="navbar-brand" href="#"><img src="http://www.galeriaarteaga.com/imagenes/facebook_logo.png" width="100" height="35"></a>
         </div>
 
         <!-- Collect the nav links, forms, and other content for toggling -->
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
             <form class="navbar-form navbar-left" role="search">
                 <div class="form-group">
-                    <input type="text" class="form-control" placeholder="Search">
+                    <input type="text" class="form-control" placeholder="Busca personas, lugares y cosas">
                 </div>
             </form>
             <ul class="nav navbar-nav navbar-right">
-                <li><a href="#">{$nombre}</a></li>
-                <li><a href="#">Inicio</a></li>
+                <li><a style="color:#FFFFFF" href="#">{$nombre}</a></li>
+                <li><a style="color:#FFFFFF" href="#">Inicio</a></li>
                 <li><a href="#"><span class="glyphicon glyphicon-user" aria-hidden="true"></span></a></li>
                 <li><a href="#"><span class="glyphicon glyphicon-comment" aria-hidden="true"></span></a></li>
                 <li><a href="#"><span class="glyphicon glyphicon-globe" aria-hidden="true"></span></a></li>
@@ -38,7 +38,7 @@
                         <li><a href="#">Registro de actividad</a></li>
                         <li><a href="#">Preferencias de noticias</a></li>
                         <li><a href="#">Configuración</a></li>
-                        <li><a href="#"><span class="glyphicon glyphicon-off" aria-hidden="true"></span> Salir</a></li>
+                        <li><a href="{url('/logout')}"><span class="glyphicon glyphicon-off" aria-hidden="true"></span> Salir</a></li>
                         <li class="divider"></li>
                         <li><a href="#">Ayuda</a></li>
                         <li><a href="#">Reportar un problema</a></li>
