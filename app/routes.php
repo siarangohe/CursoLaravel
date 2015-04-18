@@ -26,8 +26,10 @@ Route::get('/test1', function()
 Route::get('/profile', array('before'=>'auth', function() 
 //Aqui se verifica que antes de cargar el perfil este autenticado.
 {
+    $publicaciones = Publicacion::orderBy('id', 'des')->get();
     return View::make('perfil.perfil')
-            ->with("nombre", Auth::user()->nombre);
+            ->with("nombre", Auth::user()->nombre)
+            ->with("publicaciones", $publicaciones);
 }));
 
 Route::get('/login', function()
@@ -55,3 +57,4 @@ Route::get('/logout', function()
 
 Route::controller('personal', 'PersonalController');
 Route::controller('clase', 'Clase2Controller');
+Route::controller('publicacion', 'PublicacionController');
