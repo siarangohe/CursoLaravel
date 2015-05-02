@@ -15,7 +15,7 @@
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
             <form class="navbar-form navbar-left" role="search">
                 <div class="form-group">
-                    <input type="text" class="form-control" placeholder="Busca personas, lugares y cosas">
+                    <input type="text" data-provide="typeahead" data-source='[{$amigos}]' class="form-control" placeholder="Busca personas, lugares y cosas">
                 </div>
             </form>
             <ul class="nav navbar-nav navbar-right">
@@ -38,7 +38,7 @@
                         <li><a href="#">Registro de actividad</a></li>
                         <li><a href="#">Preferencias de noticias</a></li>
                         <li><a href="#">Configuración</a></li>
-                        <li><a href="{url('/logout')}"><span class="glyphicon glyphicon-off" aria-hidden="true"></span> Salir</a></li>
+                        <li><a href="{url('profile/logout')}"><span class="glyphicon glyphicon-off" aria-hidden="true"></span> Salir</a></li>
                         <li class="divider"></li>
                         <li><a href="#">Ayuda</a></li>
                         <li><a href="#">Reportar un problema</a></li>

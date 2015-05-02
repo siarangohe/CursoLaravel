@@ -1,7 +1,8 @@
 {capture assign="left"}
-    <center><img src="https://scontent.xx.fbcdn.net/hphotos-xfa1/v/t1.0-9/1979532_10152290956476550_760046611_n.jpg?oh=a79982974ac1f024b45d869111bb7582&oe=55717823" width="150" height="150"></center>
+    <center><img id="foto-perfil" src="{url('assets/img/profile')}/{$foto}" width="150" height="150"></center>
     <div class="well">
-        <center>Informacion</center>
+        <center><p>{$nombre}</p></center>
+        <center><p>{$email}</p></center>
     </div>
 
 {/capture}
@@ -43,7 +44,9 @@
 {/capture}
 
 {capture assign="portada"}
-    
+    <p><center><img id="foto-portada" src="https://scontent-atl.xx.fbcdn.net/hphotos-xap1/v/t1.0-9/1521470_10152107958421550_929684074_n.jpg?oh=b17a6649e1b6c3c73903f6cbef2bd02b&oe=55E17F96">
+    <div id="barra-portada" class="well"></div>
+    </center></p>    
 {/capture}
 
 {include file="../masterpage/template.tpl" layout="two_columns"}

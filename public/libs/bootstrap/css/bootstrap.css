@@ -1107,6 +1107,7 @@ figure {
 }
 img {
   vertical-align: middle;
+  
 }
 .img-responsive,
 .thumbnail > img,
@@ -4379,8 +4380,10 @@ select[multiple].input-group-sm > .input-group-btn > .btn {
   }
 }
 .navbar-default {
-  background-color: #337ab7;
-  border-color: #e7e7e7;
+  background-color: #3B5998;
+  border-color: #3B5998;
+  margin-left: -8.5%;
+  margin-right: -8.5%;
 }
 .navbar-default .navbar-brand {
   color: #777;
@@ -6562,5 +6565,21 @@ button.close {
   .hidden-print {
     display: none !important;
   }
+}
+
+#foto-portada {
+    margin-top: -5%;
+}
+
+#foto-perfil {
+    margin-top: -70%;
+    margin-left: 43%;
+    border: 4px solid #ffffff;
+    border-radius: 3px;
+}
+
+#barra-portada {
+    margin-top: -3.4%; 
+    position: relative; z-index: 1;
 }
 /*# sourceMappingURL=bootstrap.css.map */
