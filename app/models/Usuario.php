@@ -15,8 +15,12 @@ class Usuario extends Eloquent {
     protected $table = 'usuario';
     
     public function misPublicaciones() {
-        return Publicacion::where('id_usuario', Auth::user()->id)
+        return Publicacion::where('receptor', $this->id)
             ->orderBy('id', 'des')
             ->get();
+    }
+    
+    public function misAmigos() {
+        return Usuario::where('id','<>', $this->id)->get();
     }
 }

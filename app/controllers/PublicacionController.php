@@ -20,17 +20,34 @@ class PublicacionController extends BaseController {
         $publicacion = [
             'publicacion' => Input::get('publicacion'),
             'tipo' => '0',
-            'id_usuario' => Auth::user()->id
+            'id_usuario' => Auth::user()->id,
+            'receptor' => Input::get('receptor')
         ];
         DB::table('publicacion')->insert($publicacion);
-        return Redirect::to("/profile");
+        return Redirect::to("/profile/ver/".Input::get('receptor'));
     }
     
     public function postComentar() {
         
     }
     
-    public function getEliminar($id) {
+    public function postMeGusta() { //Al poner postMeGusta, en la url se va a ver me-gusta
+        
+        $publicacion = Input::get('publicacion');
+        
+        $megusta = [
+            'id_usuario' => Auth::user()->id,
+            'id_publicacion' => $publicacion
+        ];
+        DB::table('me_gusta')->insert($megusta);
+        
+        $data['nlikes'] =  Publicacion::likes($publicacion);
+        
+        return Response::json($data);
+        
+    }
+
+        public function getEliminar($id) {
         $publicacion = Publicacion::find($id);
         if($publicacion && $publicacion->id_usuario == Auth::user()->id) {
             $publicacion->delete();

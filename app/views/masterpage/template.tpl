@@ -8,6 +8,10 @@
         <link href='http://fonts.googleapis.com/css?family=Roboto' rel='stylesheet' type='text/css'>
         {HTML::script('/libs/typeahead/typeahead.min.js')}
         
+        <script>
+            var baseUrl = '{url('/')}';
+        </script>
+        
         {HTML::script('assets/js/app2.js')}
     </head>
     <body>

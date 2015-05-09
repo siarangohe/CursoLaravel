@@ -19,4 +19,9 @@ class Publicacion extends Eloquent {
     public function freshTimestamp() {
         return format('Y-m-d h:i:s');
     }
+    
+    public static function likes($id) {
+        return Megusta::where('id_publicacion', $id)
+        ->count();
+    }
 }

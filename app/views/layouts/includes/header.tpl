@@ -19,7 +19,7 @@
                 </div>
             </form>
             <ul class="nav navbar-nav navbar-right">
-                <li><a style="color:#FFFFFF" href="#">{$nombre}</a></li>
+                <li><a style="color:#FFFFFF" href="{url('profile/')}">{$nombre}</a></li>
                 <li><a style="color:#FFFFFF" href="#">Inicio</a></li>
                 <li><a href="#"><span class="glyphicon glyphicon-user" aria-hidden="true"></span></a></li>
                 <li><a href="#"><span class="glyphicon glyphicon-comment" aria-hidden="true"></span></a></li>

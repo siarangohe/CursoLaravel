@@ -6582,4 +6582,8 @@ button.close {
     margin-top: -3.4%; 
     position: relative; z-index: 1;
 }
+.tablaAmigos {
+    border: 4px solid white;
+    border-collapse: collapse;
+}
 /*# sourceMappingURL=bootstrap.css.map */
