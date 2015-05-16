@@ -43,11 +43,16 @@
             </div>
             <div>
                 <span class="glyphicon glyphicon-comment"></span> <span>Comentar</span> |
-                <span class="glyphicon glyphicon-thumbs-up"></span> <span onclick="fb.meGusta({$publicacion->id})">Me gusta</span> |
-                <span class="glyphicon glyphicon-thumbs-up"></span> {Publicacion::likes($publicacion->id)} personas les gusta esto
+                <span class="glyphicon glyphicon-thumbs-up"></span> <span id="num-me-gusta-{$publicacion->id}" style="cursor:pointer" onclick="fb.meGusta({$publicacion->id})">{$publicacion->leGustaA(Auth::user()->id)}</span> |
+                <span class="glyphicon glyphicon-thumbs-up"></span> <span id="n-me-gusta-{$publicacion->id}"> {Publicacion::likes($publicacion->id)} </span> personas les gusta esto
                 <div id="comentarios-{$publicacion->id}">
-                    <div style="font-size: 10px; padding: 3px;" class="well well-sm col-sm-7">Esto es un comentario</div>
+                    
+                    {foreach $publicacion->comentarios() as $comentario}
+                        <div style="margin-bottom: 1px; font-size: 10px; padding: 3px;" class="well well-sm col-sm-7">
+                            <a href="{url('profile/ver')}/{$publicacion->id_usuario}"><img src="{url('assets/img/profile')}/{$comentario->id_usuario}.jpg" width="20" heigth='20'></a>{$comentario->publicacion}</div>
+                    {/foreach}
                 </div>
+                <div style="clear: both"></div> <!-- Esto es para que no permita que se ponga algo a lado y lado -->
                 <br>
                 <br>
                 <textarea id="comentario-{$publicacion->id}" rows="1" placeholder="Escribe tu comentario..." class="col-sm-6"></textarea>

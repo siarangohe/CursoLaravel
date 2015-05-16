@@ -28,18 +28,37 @@ class PublicacionController extends BaseController {
     }
     
     public function postComentar() {
-        
+        if(Request::ajax()) { //Cuando es ajax, hace tal cosa, este metodo es para saber si es ajax o no
+            $publicacion = Publicacion::find(Input::get('publicacion'));
+            $comentario = [
+                'publicacion' => Input::get('comentario'),
+                'tipo' => 1,
+                'id_usuario' => Auth::user()->id,
+                'receptor' => $publicacion->receptor,
+                'id_padre' => $publicacion->id
+            ];
+            DB::table('publicacion')->insert($comentario);
+            return Response::json($comentario);
+        }
     }
     
     public function postMeGusta() { //Al poner postMeGusta, en la url se va a ver me-gusta
         
         $publicacion = Input::get('publicacion');
+        $usuario = Usuario::find(Auth::user()->id);
         
-        $megusta = [
-            'id_usuario' => Auth::user()->id,
-            'id_publicacion' => $publicacion
-        ];
-        DB::table('me_gusta')->insert($megusta);
+        if($usuario->leGustaPublicacion($publicacion)) {
+            $usuario->yaNoLeGustaPublicacion($publicacion);
+            $data['type'] = -1;
+        } else {
+            $megusta = [
+                'id_usuario' => Auth::user()->id,
+                'id_publicacion' => $publicacion
+            ];
+            DB::table('me_gusta')->insert($megusta);
+            $data['type'] = 1;
+        }
+        
         
         $data['nlikes'] =  Publicacion::likes($publicacion);
         
